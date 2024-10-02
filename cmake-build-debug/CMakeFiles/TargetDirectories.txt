@@ -1,0 +1,3 @@
+C:/Users/ekoks/CLionProjects/EvelinaFurmanovaAntrasBandymas/cmake-build-debug/CMakeFiles/EvelinaFurmanovaAntrasBandymas.dir
+C:/Users/ekoks/CLionProjects/EvelinaFurmanovaAntrasBandymas/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ekoks/CLionProjects/EvelinaFurmanovaAntrasBandymas/cmake-build-debug/CMakeFiles/rebuild_cache.dir
