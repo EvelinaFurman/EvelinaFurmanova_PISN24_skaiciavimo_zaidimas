@@ -43,8 +43,8 @@ int main() {
             int answer;
 
             srand(time(nullptr));
-            randomNumber1 = rand() % 100 + 4;
-            randomNumber2 = rand() % 50 + 4;
+            randomNumber1 = rand() % 100 + 6;
+            randomNumber2 = rand() % 50 + 6;
             cout << randomNumber1 << " + " << randomNumber2 << " = " << endl;
             cin >> answer;
             if(answer == randomNumber1 + randomNumber2)
