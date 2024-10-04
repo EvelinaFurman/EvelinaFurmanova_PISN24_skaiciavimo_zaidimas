@@ -43,7 +43,7 @@ int main() {
             int answer;
 
             srand(time(nullptr));
-            randomNumber1 = rand() % 100 + 6;
+            randomNumber1 = rand() % 100 + 8;
             randomNumber2 = rand() % 50 + 6;
             cout << randomNumber1 << " + " << randomNumber2 << " = " << endl;
             cin >> answer;
