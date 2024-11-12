@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <random>
+#include <limits>
 #include <string.h>
 #include <string>
 #include <bits/stl_algo.h>
@@ -17,12 +18,18 @@ int main() {
     string subt = "SUBTRACTION";
     int choice;
     int score = 0;
+    int score1 = 0;
+    int score2 = 0;
+    int score3 = 0;
     string wrongAnswer = "GOOD LUCK NEXT TIME";
     string rightAnswer = "GOOD JOB";
     int randomNumber1;
     int randomNumber2;
-    long answer;
+    double answer;
     short task = 0;
+    short task1 = 0;
+    short task2 = 0;
+    short task3 = 0;
 
 
     cout << boarder << endl;
@@ -51,8 +58,15 @@ int main() {
             case 5:
                 break;
         }
+        if(!(cin))
+        {
+            cin.clear();
+            cin.ignore(123, '\n');
+            cout << "It is not a number" << endl;
+            cin >> answer;
+        }
         if (choice == 1) {
-            cout << "   Great choise!\n Now solve 10 addition equations" <<endl;
+            cout << "   Great choice!\n Now solve 10 addition equations" <<endl;
             cout << boarder << endl;
             cout <<add << endl;
             cout <<boarder << endl;
@@ -63,19 +77,34 @@ int main() {
                 randomNumber2 = (rand() % 50 + 6);
                 cout << randomNumber1 << " + " << randomNumber2 << " = ";
                 cin >> answer;
+
+
                 if(answer == randomNumber1 + randomNumber2)
                     cout << rightAnswer <<endl;
                 else
-                    cout << wrongAnswer <<endl;
+                if((cin.fail())) {
+                    cin.clear();
+                    cin.ignore(123, '\n');
+                    cout << "It is not a number\n Try again" << endl;
+                    cin >> answer;
+                    if(answer == randomNumber1 + randomNumber2)
+                        cout << rightAnswer <<endl;
+                    else
+                        cout << wrongAnswer <<endl;
+                }
+                else
+                        if(answer != randomNumber1 + randomNumber2)
+                        cout << wrongAnswer <<endl;
                 if (answer == randomNumber1 + randomNumber2)
                     score++;
                 else
-                    score = score-0;
-                if(answer == randomNumber1 + randomNumber2)
-                    task++;
-                else
-                    task++;
-            }
+                    score=score-0;
+                    if(answer == randomNumber1 + randomNumber2)
+                        task++;
+                    else
+                        task++;
+                }
+
             cout << " "<<endl;
             cout << "CONGRATULATIONS!!!\n You scored: " <<score << endl;
             cout << "Out of " << task <<endl;
@@ -92,7 +121,7 @@ int main() {
             cout << boarder << endl;
             cout <<div << endl;
             cout << boarder << endl;
-            cout << "*rouns down your answer before entering" << endl;
+            cout << "*round down your answer before entering" << endl;
 
             for(int i = 1; i <= 10; i++)
             {
@@ -101,28 +130,41 @@ int main() {
                 randomNumber2 = (rand() % 9 + 1);
                 cout << randomNumber1 << " / " << randomNumber2 << " = ";
                 cin >> answer;
-                if(lround(answer) == randomNumber1 / randomNumber2)
+                    if(lround(answer) == randomNumber1 / randomNumber2)
                     cout << rightAnswer <<endl;
-                else
-                    cout << wrongAnswer <<endl;
+                    else
+                    if((cin.fail())) {
+                        cin.clear();
+                        cin.ignore(123, '\n');
+                        cout << "It is not a number" << endl;
+                        cin >> answer;
+                        if(answer == randomNumber1 / randomNumber2)
+                            cout << rightAnswer <<endl;
+                        else
+                            cout << wrongAnswer <<endl;
+                    }
+                    else
+                    if(answer != randomNumber1 / randomNumber2)
+                           cout << wrongAnswer <<endl;
+
                 if(lround(answer) == randomNumber1 / randomNumber2)
-                    score++;
+                    score1++;
                 else
-                    score=(score-0);
+                    score1=score1-0;
                 if(lround(answer) == randomNumber1 / randomNumber2)
-                    task++;
+                    task1++;
                 else
-                    task++;
+                    task1++;
             }
             cout << " "<<endl;
-            cout << "CONGRATULATIONS!!!\n You scored: " <<score << endl;
-            cout << "Out of "<<task<<endl;
+            cout << "CONGRATULATIONS!!!\n You scored: " <<score1 << endl;
+            cout << "Out of "<<task1<<endl;
             cout << " " <<endl;
             cout << boarder << endl;
             cout << boarder << endl;
 
         }
-        if(task>10)
+        if(task1>10)
         system("cls");
 
         if(choice == 3) {
@@ -137,59 +179,83 @@ int main() {
                 randomNumber2 = (rand() % 50 + 1);
                 cout << randomNumber1 << " - " << randomNumber2 << " = ";
                 cin >> answer;
-                if(answer == randomNumber1 - randomNumber2)
+                    if(answer == randomNumber1 - randomNumber2)
                     cout << rightAnswer <<endl;
-                else
+                    else
+                    if (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(123, '\n');
+                        cout << "It is not a number\n Try again" << endl;
+                        cin >> answer;
+                        if(answer == randomNumber1 - randomNumber2)
+                            cout << rightAnswer <<endl;
+                        else
+                            cout << wrongAnswer <<endl;
+                    }
+                    else
+                    if(answer != randomNumber1 - randomNumber2)
                     cout << wrongAnswer <<endl;
                 if(answer == randomNumber1 - randomNumber2)
-                    score++;
+                    score2++;
                 else
-                    score=(score-0);
+                    score2=(score2-0);
                 if(answer == randomNumber1 - randomNumber2)
-                    task++;
+                    task2++;
                 else
-                    task++;
+                    task2++;
             }
             cout << " "<<endl;
-            cout << "CONGRATULATIONS!!!\n You scored: " <<score << endl;
-            cout << "Out of " << task <<endl;
+            cout << "CONGRATULATIONS!!!\n You scored: " <<score2 << endl;
+            cout << "Out of " << task2 <<endl;
             cout << " " <<endl;
             cout << boarder << endl;
             cout << boarder << endl;
 
         }
-        if(task>10)
+        if(task2>10)
             system("cls");
 
         if(choice == 4) {
-            cout << "   Let's go!!!\n Now solve 10 multiplivation equations" <<endl;
+            cout << "   Let's go!!!\n Now solve 10 multiplication equations" <<endl;
             cout << boarder << endl;
             cout << mult << endl;
             cout << boarder << endl;
             for(int i = 1; i <= 10; i++) {
                 srand(time(nullptr));
-                randomNumber1 = (rand() % 100 + 9);
-                randomNumber2 = (rand() % 50 + 1);
+                randomNumber1 = (rand() % 30 + 9);
+                randomNumber2 = (rand() % 10 + 1);
                 cout << randomNumber1 << " * " << randomNumber2 << " = ";
                 cin >> answer;
-                if(answer == randomNumber1 * randomNumber2)
+                    if(answer == randomNumber1 * randomNumber2)
                     cout << rightAnswer <<endl;
-                else
-                    cout << wrongAnswer <<endl;
+                    else
+                    if (cin.fail()) {
+                        cin.clear();
+                        cin.ignore(123, '\n');
+                        cout << "It is not a number\n Try again" << endl;
+                        cin >> answer;
+                        if(answer == randomNumber1 - randomNumber2)
+                            cout << rightAnswer <<endl;
+                        else
+                            cout << wrongAnswer <<endl;
+                    }
+                    else
+                    if(answer != randomNumber1 - randomNumber2)
+                        cout << wrongAnswer <<endl;
                 if(answer == randomNumber1 * randomNumber2)
-                    score++;
+                    score3++;
                 else
-                    score=(score-0);
+                    score3=(score3-0);
                 if(answer == randomNumber1 * randomNumber2)
-                    task++;
+                    task3++;
                 else
-                    task++;
+                    task3++;
             }
             cout << " "<< endl;
-            cout << "CONGRATULATIONS!!!\n You scored: " <<score << endl;
-            cout << "Out of " << task <<endl;
+            cout << "CONGRATULATIONS!!!\n You scored: " <<score3 << endl;
+            cout << "Out of " << task3 <<endl;
         }
-        if(task>10)
+        if(task3>10)
             system("cls");
         if(choice == 5) {
             cout << boarder << endl;
